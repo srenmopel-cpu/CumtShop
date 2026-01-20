@@ -1,6 +1,9 @@
 {
-    "buildCommand": "npx vite build",
-    "outputDirectory": "dist",
-    "framework": "vite",
-    "nodeVersion": "20"
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "nodeVersion": "20",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ]
 }
