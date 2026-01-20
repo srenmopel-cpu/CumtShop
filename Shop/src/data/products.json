@@ -1,0 +1,118 @@
+[
+  {
+    "id": 1,
+    "name": "Fresh Organic Strawberries",
+    "price": 4.99,
+    "category": "Food & Drinks",
+    "image": "/placeholder.svg",
+    "discount": 15
+  },
+  {
+    "id": 2,
+    "name": "Green Tea Collection",
+    "price": 12.99,
+    "category": "Food & Drinks",
+    "image": "/placeholder.svg"
+  },
+  {
+    "id": 3,
+    "name": "Premium Sushi Set",
+    "price": 18.99,
+    "category": "Food & Drinks",
+    "image": "/placeholder.svg",
+    "discount": 20
+  },
+  {
+    "id": 4,
+    "name": "Luxury Face Cream",
+    "price": 24.99,
+    "category": "Health & Beauty",
+    "image": "/placeholder.svg"
+  },
+  {
+    "id": 5,
+    "name": "Ceramic Coffee Mug Set",
+    "price": 15.99,
+    "category": "Home & Living",
+    "image": "/placeholder.svg"
+  },
+  {
+    "id": 6,
+    "name": "Designer T-Shirt",
+    "price": 29.99,
+    "category": "International Brands",
+    "image": "/placeholder.svg",
+    "discount": 30
+  },
+  {
+    "id": 7,
+    "name": "Organic Honey",
+    "price": 8.99,
+    "category": "Local Products",
+    "image": "/placeholder.svg"
+  },
+  {
+    "id": 8,
+    "name": "Vitamin C Serum",
+    "price": 19.99,
+    "category": "Health & Beauty",
+    "image": "/placeholder.svg"
+  },
+  {
+    "id": 9,
+    "name": "Smart Watch",
+    "price": 99.99,
+    "category": "New Arrivals",
+    "image": "/placeholder.svg"
+  },
+  {
+    "id": 10,
+    "name": "Aromatic Candles",
+    "price": 14.99,
+    "category": "Home & Living",
+    "image": "/placeholder.svg"
+  },
+  {
+    "id": 11,
+    "name": "Japanese Snack Box",
+    "price": 22.99,
+    "category": "International Brands",
+    "image": "/placeholder.svg",
+    "discount": 10
+  },
+  {
+    "id": 12,
+    "name": "Yoga Mat Premium",
+    "price": 34.99,
+    "category": "Health & Beauty",
+    "image": "/placeholder.svg"
+  },
+  {
+    "id": 13,
+    "name": "Coca-Cola Classic",
+    "price": 2.99,
+    "category": "Beverages",
+    "image": "/Coca.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Pepsi Cola",
+    "price": 2.99,
+    "category": "Beverages",
+    "image": "/pepsi.jpg"
+  },
+  {
+    "id": 15,
+    "name": "Caramel Iced Latte",
+    "price": 5.99,
+    "category": "Beverages",
+    "image": "/placeholder.svg"
+  },
+  {
+    "id": 16,
+    "name": "Tropical Mango Smoothie",
+    "price": 6.49,
+    "category": "Beverages",
+    "image": "/placeholder.svg"
+  }
+]
