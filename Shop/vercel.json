@@ -1,6 +1,6 @@
 {
     "rootDirectory": "Shop",
-    "buildCommand": "npm run build",
+    "buildCommand": "npx vite build",
     "outputDirectory": "dist",
     "framework": "vite",
     "nodeVersion": "20"
