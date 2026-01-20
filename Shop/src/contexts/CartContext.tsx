@@ -7,6 +7,7 @@ export interface CartItem {
     image: string;
     quantity: number;
     discount?: number;
+    variant?: string; // e.g., "Size: M, Color: Red"
 }
 
 interface CartContextType {
