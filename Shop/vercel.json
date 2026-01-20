@@ -1,6 +1,4 @@
 {
-  "framework": "vite",
-  "buildCommand": "npx vite build",
   "outputDirectory": "dist",
   "nodeVersion": "20",
   "rewrites": [
