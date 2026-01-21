@@ -1,104 +1,203 @@
-import { MapPin, Phone, Mail, Facebook, Instagram, Building2, Link } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  MessageCircle,
+  Send,
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  ShieldCheck,
+  Truck,
+  RotateCcw,
+  CreditCard
+} from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
   const { t } = useLanguage();
+
+  const quickLinks = [
+    { name: t('home'), href: "#" },
+    { name: t('shop'), href: "#" },
+    { name: t('categories'), href: "#" },
+    { name: t('aboutUs'), href: "#" },
+    { name: t('contactUs'), href: "#" },
+  ];
+
+  const customerService = [
+    { name: t('helpCenter'), href: "#" },
+    { name: t('faqs'), href: "#" },
+    { name: t('shippingDelivery'), href: "#" },
+    { name: t('returnsRefunds'), href: "#" },
+    { name: t('privacyPolicy'), href: "#" },
+    { name: t('termsConditions'), href: "#" },
+  ];
+
+  const socialLinks = [
+    { name: "Facebook", icon: Facebook, href: "#" },
+    { name: "Instagram", icon: Instagram, href: "#" },
+    { name: "TikTok", icon: MessageCircle, href: "#" },
+    { name: "Telegram", icon: Send, href: "#" },
+  ];
+
+  const paymentMethods = [
+    "Visa",
+    "MasterCard",
+    "PayPal",
+    "ABA",
+    "Wing",
+  ];
+
   return (
-    <footer className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white mt-16 shadow-2xl">
-      <div className="container mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {/* Company Info - Left */}
-          <div className="space-y-6">
-            <h3 className="text-2xl font-bold flex items-center gap-3">
-              <Building2 className="h-8 w-8 text-purple-300" />
-              {t('footerCompanyName')}
-            </h3>
-            <p className="text-slate-300 leading-relaxed">
-              {t('footerDescription')}
-            </p>
-            <div className="flex gap-4">
-              <a
-                href="https://www.facebook.com/share/1CPj4ifakf/"
-                className="bg-purple-600/20 p-3 rounded-full hover:bg-purple-600 hover:scale-110 transition-all duration-300 group"
-              >
-                <Facebook className="h-6 w-6 group-hover:text-white" />
-              </a>
-              <a
-                href="#"
-                className="bg-purple-600/20 p-3 rounded-full hover:bg-purple-600 hover:scale-110 transition-all duration-300 group"
-              >
-                <Instagram className="h-6 w-6 group-hover:text-white" />
-              </a>
-            </div>
-          </div>
+    <footer className="bg-footer">
+      {/* Main Footer Content */}
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
 
-          {/* Contact Us - Center */}
-          <div className="space-y-6">
-            <h4 className="text-xl font-semibold flex items-center gap-3">
-              <Phone className="h-6 w-6 text-purple-300" />
-              {t('contactUs')}
-            </h4>
+          {/* Brand Section */}
+          <div className="lg:col-span-2 space-y-6">
             <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <MapPin className="h-6 w-6 mt-1 flex-shrink-0 text-purple-300" />
-                <p className="text-slate-300">
-                  {t('footerAddress')}
-                </p>
-              </div>
-              <div className="flex items-center gap-3">
-                <Phone className="h-6 w-6 flex-shrink-0 text-purple-300" />
-                <p className="text-slate-300">{t('footerPhone')}</p>
-              </div>
-              <div className="flex items-center gap-3">
-                <Mail className="h-6 w-6 flex-shrink-0 text-purple-300" />
-                <p className="text-slate-300">{t('footerEmail')}</p>
+              <h2 className="font-serif text-3xl font-bold text-footer-foreground">
+                CUMT<span className="text-gradient">Store</span>
+              </h2>
+              <p className="text-footer-muted leading-relaxed max-w-md">
+                {t('footerDesc')}
+              </p>
+              <p className="text-sm italic text-footer-muted/80">
+                "Where Style Meets Substance"
+              </p>
+            </div>
+
+            {/* Social Media */}
+            <div className="space-y-4">
+              <h4 className="text-sm font-semibold uppercase tracking-wider text-footer-foreground">
+                {t('followUs')}
+              </h4>
+              <div className="flex gap-3">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    aria-label={social.name}
+                    className="social-icon"
+                  >
+                    <social.icon className="w-5 h-5" />
+                  </a>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* Quick Links - Right */}
+          {/* Quick Links */}
           <div className="space-y-6">
-            <h4 className="text-xl font-semibold flex items-center gap-3">
-              <Link className="h-6 w-6 text-purple-300" />
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-footer-foreground">
               {t('quickLinks')}
             </h4>
             <ul className="space-y-3">
-              <li>
-                <a href="#" className="text-slate-300 hover:text-purple-300 hover:underline transition-all duration-300 flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-purple-300 rounded-full"></span>
-                  {t('aboutUs')}
+              {quickLinks.map((link) => (
+                <li key={link.name}>
+                  <a href={link.href} className="footer-link inline-block text-sm">
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Customer Service */}
+          <div className="space-y-6">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-footer-foreground">
+              {t('customerService')}
+            </h4>
+            <ul className="space-y-3">
+              {customerService.map((link) => (
+                <li key={link.name}>
+                  <a href={link.href} className="footer-link inline-block text-sm">
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Information */}
+          <div className="space-y-6">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-footer-foreground">
+              {t('contactUs')}
+            </h4>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3 text-sm text-footer-muted">
+                <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                <span>123 Fashion Street,<br />Cambodia, NY 1234</span>
+              </li>
+              <li className="flex items-center gap-3 text-sm text-footer-muted">
+                <Phone className="w-5 h-5 text-primary shrink-0" />
+                <a href="tel:+1234567890" className="hover:text-footer-hover transition-colors">
+                  +885 1234 5678
                 </a>
               </li>
-              <li>
-                <a href="#" className="text-slate-300 hover:text-purple-300 hover:underline transition-all duration-300 flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-purple-300 rounded-full"></span>
-                  {t('deliveryInfo')}
+              <li className="flex items-center gap-3 text-sm text-footer-muted">
+                <Mail className="w-5 h-5 text-primary shrink-0" />
+                <a href="mailto:hello@luxestore.com" className="hover:text-footer-hover transition-colors">
+                  Cumt@gmail.com
                 </a>
               </li>
-              <li>
-                <a href="#" className="text-slate-300 hover:text-purple-300 hover:underline transition-all duration-300 flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-purple-300 rounded-full"></span>
-                  {t('privacyPolicy')}
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-slate-300 hover:text-purple-300 hover:underline transition-all duration-300 flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-purple-300 rounded-full"></span>
-                  {t('termsConditions')}
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-slate-300 hover:text-purple-300 hover:underline transition-all duration-300 flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-purple-300 rounded-full"></span>
-                  {t('faqs')}
-                </a>
+              <li className="flex items-start gap-3 text-sm text-footer-muted">
+                <Clock className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                <span>Mon - Sat: 9AM - 8PM<br />Sunday: 10AM - 6PM</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-slate-700 mt-12 pt-8 text-center">
-          <p className="text-slate-400 text-sm">{t('MopelSmosSne')}</p>
+        {/* Trust Badges & Payment Methods */}
+        <div className="mt-16 pt-8 border-t border-footer-border">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-8">
+
+            {/* Trust Badges */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-6">
+              <div className="trust-badge">
+                <ShieldCheck className="w-5 h-5 text-primary" />
+                <span>{t('secureCheckout')}</span>
+              </div>
+              <div className="trust-badge">
+                <Truck className="w-5 h-5 text-primary" />
+                <span>{t('freeShipping')}</span>
+              </div>
+              <div className="trust-badge">
+                <RotateCcw className="w-5 h-5 text-primary" />
+                <span>{t('dayReturns')}</span>
+              </div>
+              <div className="trust-badge">
+                <CreditCard className="w-5 h-5 text-primary" />
+                <span>{t('securePayment')}</span>
+              </div>
+            </div>
+
+            {/* Payment Methods */}
+            <div className="flex flex-wrap justify-center gap-3">
+              {paymentMethods.map((method) => (
+                <div key={method} className="payment-icon">
+                  <span className="text-xs font-medium">{method}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="border-t border-footer-border">
+        <div className="container mx-auto px-4 py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-footer-muted">
+            <p>{t('© 2024 MopelSmosSne')}</p>
+            <div className="flex flex-wrap justify-center gap-6">
+              <a href="#" className="hover:text-footer-hover transition-colors">{t('privacyPolicy')}</a>
+              <a href="#" className="hover:text-footer-hover transition-colors">{t('termsConditions')}</a>
+              <a href="#" className="hover:text-footer-hover transition-colors">{t('cookiePolicy')}</a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

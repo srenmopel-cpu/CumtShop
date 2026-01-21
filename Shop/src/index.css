@@ -134,4 +134,55 @@ All colors MUST be HSL.
   .card-frost {
     @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl shadow-lg;
   }
+
+  /* Footer Styles */
+  .bg-footer {
+    background: linear-gradient(135deg, hsl(330 81% 50%), hsl(340 82% 42%));
+  }
+
+  .text-footer-foreground {
+    color: rgba(255, 255, 255, 1);
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .text-footer-muted {
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .text-footer-hover {
+    color: rgba(255, 255, 255, 1);
+  }
+
+  .border-footer-border {
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .footer-link {
+    color: rgba(255, 255, 255, 0.9);
+    transition: color 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .footer-link:hover {
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  .social-icon {
+    @apply p-2 rounded-full bg-white/30 hover:bg-white/40 transition-colors;
+  }
+
+  .social-icon svg {
+    color: rgba(255, 255, 255, 1);
+  }
+
+  .trust-badge {
+    @apply flex items-center gap-2 text-sm text-footer-muted;
+  }
+
+  .payment-icon {
+    @apply px-3 py-1 bg-white/30 rounded text-footer-foreground;
+  }
 }

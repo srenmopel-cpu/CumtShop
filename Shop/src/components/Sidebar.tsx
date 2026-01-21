@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronDown, ChevronRight, Star, Package, Truck, UtensilsCrossed, Heart, Home, X, Leaf, Coffee, Flower, Lamp, Sparkles, Flame } from "lucide-react";
+import { ChevronDown, ChevronRight, Star, Package, Truck, UtensilsCrossed, Heart, Home, X, Coffee, Flower, Lamp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -8,9 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 
 const categoryData = [
-  { id: 1, nameKey: "popularProducts", path: "/popular-products", subcategories: [] },
-  { id: 2, nameKey: "newArrivalsCat", path: "/new-arrivals", subcategories: [] },
-  { id: 3, nameKey: "localProducts", path: "/local-products", subcategories: [] },
+
 
   {
     id: 5,
@@ -58,9 +56,6 @@ const Sidebar = () => {
 
   const getIcon = (id: number) => {
     switch (id) {
-      case 1: return Flame;
-      case 2: return Sparkles;
-      case 3: return Leaf;
       case 5: return Coffee;
       case 6: return Flower;
       case 7: return Lamp;
@@ -69,12 +64,9 @@ const Sidebar = () => {
   };
 
   useEffect(() => {
-    if (location.pathname === '/' ||
-      location.pathname.startsWith('/popular') ||
-      location.pathname.startsWith('/new-arrivals') ||
-      location.pathname.startsWith('/local') ||
-      location.pathname.startsWith('/international')) {
-      setExpandedCategory(5); // default to foodDrinks on home
+    if (location.pathname === '/') {
+      // default to foodDrinks on home
+      setExpandedCategory(5);
     } else if (location.pathname.startsWith('/health-beauty')) {
       setExpandedCategory(6);
     } else if (location.pathname.startsWith('/home-living')) {
@@ -106,7 +98,7 @@ const Sidebar = () => {
                 className="w-full flex items-center justify-between px-3 py-2 rounded-md hover:bg-accent transition-colors text-left group cursor-pointer"
               >
                 <span className="flex items-center flex-1 text-sm font-medium text-foreground group-hover:text-primary">
-                  {(() => { const Icon = getIcon(category.id); const iconClass = category.id === 1 ? "h-4 w-4 mr-2 text-red-500" : category.id === 2 ? "h-4 w-4 mr-2 text-yellow-400" : category.id === 3 ? "h-4 w-4 mr-2 text-green-600" : category.id === 5 ? "h-4 w-4 mr-2 text-orange-500" : category.id === 6 ? "h-4 w-4 mr-2 text-pink-400" : category.id === 7 ? "h-4 w-4 mr-2 text-amber-500" : "h-4 w-4 mr-2"; return <Icon className={iconClass} />; })()}
+                  {(() => { const Icon = getIcon(category.id); const iconClass = category.id === 5 ? "h-4 w-4 mr-2 text-orange-500" : category.id === 6 ? "h-4 w-4 mr-2 text-pink-400" : category.id === 7 ? "h-4 w-4 mr-2 text-amber-500" : "h-4 w-4 mr-2"; return <Icon className={iconClass} />; })()}
                   {t(category.nameKey)}
                 </span>
                 <motion.div
@@ -122,7 +114,7 @@ const Sidebar = () => {
                 className="w-full flex items-center justify-between px-3 py-2 rounded-md hover:bg-accent transition-colors text-left group"
               >
                 <span className="flex items-center flex-1 text-sm font-medium text-foreground group-hover:text-primary">
-                  {(() => { const Icon = getIcon(category.id); const iconClass = category.id === 1 ? "h-4 w-4 mr-2 text-red-500" : category.id === 2 ? "h-4 w-4 mr-2 text-yellow-400" : category.id === 3 ? "h-4 w-4 mr-2 text-green-600" : category.id === 5 ? "h-4 w-4 mr-2 text-orange-500" : category.id === 6 ? "h-4 w-4 mr-2 text-pink-400" : category.id === 7 ? "h-4 w-4 mr-2 text-amber-500" : "h-4 w-4 mr-2"; return <Icon className={iconClass} />; })()}
+                  {(() => { const Icon = getIcon(category.id); const iconClass = category.id === 5 ? "h-4 w-4 mr-2 text-orange-500" : category.id === 6 ? "h-4 w-4 mr-2 text-pink-400" : category.id === 7 ? "h-4 w-4 mr-2 text-amber-500" : "h-4 w-4 mr-2"; return <Icon className={iconClass} />; })()}
                   {t(category.nameKey)}
                 </span>
               </Link>
@@ -137,28 +129,15 @@ const Sidebar = () => {
                   className="overflow-hidden"
                 >
                   <div className="pl-6 py-2 space-y-1">
-                    {category.subcategories.map((sub, index) => {
-                      if (typeof sub === 'string') {
-                        return (
-                          <button
-                            key={index}
-                            className="w-full text-left px-3 py-1.5 text-sm text-muted-foreground hover:text-primary transition-colors rounded-md hover:bg-accent/50"
-                          >
-                            {t(sub)}
-                          </button>
-                        );
-                      } else {
-                        return (
-                          <Link
-                            key={index}
-                            to={sub.path}
-                            className="block px-3 py-1.5 text-sm text-muted-foreground hover:text-primary transition-colors rounded-md hover:bg-accent/50"
-                          >
-                            {t(sub.nameKey)}
-                          </Link>
-                        );
-                      }
-                    })}
+                    {category.subcategories.map((sub, index) => (
+                      <Link
+                        key={index}
+                        to={sub.path}
+                        className="block px-3 py-1.5 text-sm text-muted-foreground hover:text-primary transition-colors rounded-md hover:bg-accent/50"
+                      >
+                        {t(sub.nameKey)}
+                      </Link>
+                    ))}
                   </div>
                 </motion.div>
               )}
