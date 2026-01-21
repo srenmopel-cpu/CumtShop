@@ -4,6 +4,7 @@ import ProductCardBeverages from "./ProductCardBeverages";
 import Sidebar from "@/components/Sidebar";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import { useCart } from "@/contexts/CartContext";
 import heroBackground from "@/assets/Beverages/heroBeverages-background.jpg";
 import icedLatte from "@/assets/Beverages/productBeverages-iced-latte.png";
 import mangoSmoothie1 from "@/assets/Beverages/productBeverages-mango-smoothie (1).png";
@@ -27,9 +28,16 @@ export const featuredProducts: Product[] = [
 
 const Beverages = () => {
   const [currentProduct, setCurrentProduct] = useState<Product | null>(null);
+  const { addToCart } = useCart();
 
-  const handleAddToCart = (productName: string) => {
-    toast.success(`${productName} added to cart!`, {
+  const handleAddToCart = (product: Product) => {
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+    });
+    toast.success(`${product.name} added to cart!`, {
       description: "View your cart to checkout",
     });
   };
@@ -48,7 +56,7 @@ const Beverages = () => {
 
   const handleGridClick = () => {
     if (currentProduct) {
-      handleAddToCart(currentProduct.name);
+      handleAddToCart(currentProduct);
     }
   };
 
@@ -101,7 +109,7 @@ const Beverages = () => {
                         image={product.image}
                         name={product.name}
                         price={product.price}
-                        onAddToCart={() => handleAddToCart(product.name)}
+                        onAddToCart={() => handleAddToCart(product)}
                       />
                     </div>
                   ))}
