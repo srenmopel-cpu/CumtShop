@@ -1,12 +1,5 @@
 {
-    "framework": "vite",
-    "buildCommand": "cd Shop && npm run build",
-    "outputDirectory": "Shop/dist",
-    "nodeVersion": "20",
-    "rewrites": [
-        {
-            "source": "/(.*)",
-            "destination": "/index.html"
-        }
-    ]
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
